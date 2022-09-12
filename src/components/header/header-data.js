@@ -1,26 +1,26 @@
 export default [
     {
-        path: '',
+        path: '/',
         label: 'Home',
     },
     {
-        path: '',
+        path: '/',
         label: 'Who we are',
     },
     {
-        path: '',
+        path: '/',
         label: 'What we do',
     },
     {
-        path: '',
+        path: '/',
         label: 'Awards & Recognition',
     },
     {
-        path: '',
+        path: '/',
         label: 'News & Events',
     },
     {
-        path: '',
+        path: '/contact',
         label: 'Contact',
     },
 ];

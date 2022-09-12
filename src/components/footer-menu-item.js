@@ -24,7 +24,7 @@ const FooterMenuItem = ({ heading, links }) => {
             case "mail":
                 return (
                     <li key={link.label}>
-                        <a href={`mail:${link.path}`}>{link.label}</a>
+                        <a href={`mailto:${link.path}`}>{link.label}</a>
                     </li>
                 )
             case "text":

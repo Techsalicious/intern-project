@@ -3,7 +3,7 @@ export default {
     colors: {
         text: '#343D48', // body color and primary color
         textSecondary: '#ffffff', // secondary body color
-        background: '#edfffb', // body background color
+        background: '#fff', // body background color
         backgroundSecondary: '#f7f7f7', // secondary background color
         primary: '#ea414b', // primary button and link color
         darkBackground: "#232323"
@@ -81,7 +81,7 @@ export default {
             maxWidth: ['100%', null, null, null, '970px', '1140px', '1260px'],
             paddingLeft: [2, 6, 8, 10],
             paddingRight: [2, 6, 8, 10],
-            py: [8],    
+            py: [8],
             m: '0 auto',
             // background: "cyan"
         },
@@ -147,6 +147,24 @@ export default {
                 borderColor: "primary",
                 background: "white",
                 color: "primary"
+            },
+        },
+    },
+    forms: {
+        input: {
+            borderColor: 'gray',
+            '&:focus': {
+                borderColor: 'primary',
+                boxShadow: t => `0 0 0 .1px ${t.colors.primary}`,
+                outline: 'none',
+            },
+        },
+        textarea: {
+            borderColor: 'gray',
+            '&:focus': {
+                borderColor: 'primary',
+                boxShadow: t => `0 0 0 .1px ${t.colors.primary}`,
+                outline: 'none',
             },
         },
     },

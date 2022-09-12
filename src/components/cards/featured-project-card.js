@@ -1,6 +1,5 @@
 import { Box, Button, Flex, Image, Text } from "theme-ui"
 
-import service1 from "assets/images/service_01.jpg"
 
 const FeaturedProjectCard = ({ data }) => {
     const { title, desc, imageSrc } = data

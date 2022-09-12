@@ -29,7 +29,7 @@ const Footer = () => {
 
         getInvolved: [
             {
-                path: "/",
+                path: "/careers",
                 label: 'Careers',
                 type: 'link'
             },
@@ -49,7 +49,7 @@ const Footer = () => {
                 type: 'link'
             },
             {
-                path: "/",
+                path: "/contact",
                 label: 'Contact Us',
                 type: 'link'
             },

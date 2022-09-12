@@ -4,16 +4,33 @@ import { IoCall, IoMail, IoLogoLinkedin, IoLogoYoutube, IoLogoInstagram, IoLogoT
 import { HiPhoneArrowDownLeft } from "react-icons/io5"
 
 const TopHeader = () => {
+    const contactDetails = [
+        {
+            id: 1,
+            type: "tel",
+            label: "96008 33223",
+            path: "9600833223",
+        },
+        {
+            id: 2,
+            type: "mail",
+            label: "contact@gmail.com",
+            path: "contact@gmail.com",
+        },
+    ]
+
+    
     return (
         <Flex sx={styles.topHeader}>
             <Flex sx={styles.innerHeader}>
                 <Flex sx={styles.contact}>
-                    <Flex sx={styles.contactItem} variant="links.bold">
-                        <a href="tel:8937733663"><IoCall /> <span>8937733663</span></a>
-                    </Flex>
-                    <Flex sx={styles.contactItem} variant="links.bold">
-                        <a href="tel:8969453663"><IoMail /> <span>contact@gmail.com</span></a>
-                    </Flex>
+                    {contactDetails.map(item => {
+                        return (
+                            <Flex sx={styles.contactItem} variant="links.bold">
+                                <a href={`${item.type === "tel" ? "tel" : "mailto"}:${item.path}`}>{item.type === "tel" ? <IoCall /> : <IoMail />} <span>{item.label}</span></a>
+                            </Flex>
+                        )
+                    })}
                 </Flex>
 
                 <Flex as="ul" sx={styles.navList}>
@@ -40,7 +57,7 @@ const styles = {
         justifyContent: "space-between",
         overflow: "hidden"
     },
-    innerHeader:{
+    innerHeader: {
         height: "100%",
         width: ["100%", null, null, "900px", "1200px", "1400px"],
         justifyContent: "space-between",
