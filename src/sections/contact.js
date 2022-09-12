@@ -58,7 +58,7 @@ const Contact = () => {
                                     <Text as="h2">Contact</Text>
                                     {contactDetails.map(item => {
                                         return (
-                                            <p>
+                                            <p key={item.id}>
                                                 {item.type === "tel" ? "Mobile: " : "E-mail: "}
                                                 <a href={`${item.type === "tel" ? "tel" : "mailto"}:${item.path}`}>{item.label}</a>
                                             </p>

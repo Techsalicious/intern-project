@@ -26,7 +26,7 @@ const TopHeader = () => {
                 <Flex sx={styles.contact}>
                     {contactDetails.map(item => {
                         return (
-                            <Flex sx={styles.contactItem} variant="links.bold">
+                            <Flex sx={styles.contactItem} variant="links.bold" key={item.id}>
                                 <a href={`${item.type === "tel" ? "tel" : "mailto"}:${item.path}`}>{item.type === "tel" ? <IoCall /> : <IoMail />} <span>{item.label}</span></a>
                             </Flex>
                         )
