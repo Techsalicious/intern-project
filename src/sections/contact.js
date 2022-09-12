@@ -22,7 +22,7 @@ const Contact = () => {
         <Box as="section" sx={styles.section}>
             <Container>
                 <Heading sx={styles.heading}>Contact <span>Us</span></Heading>
-                <Text as="p" sx={styles.subHeading}>You're here to get in touch. Give us a call or even better, drop in for a chat.</Text>
+                <Text as="p" sx={styles.subHeading}>You&apos;re here to get in touch. Give us a call or even better, drop in for a chat.</Text>
 
                 <Text as="h2">Say Hello,</Text>
 

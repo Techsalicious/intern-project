@@ -23,7 +23,7 @@ const HeaderSecondary = () => {
                 <Flex sx={styles.innerHeader}>
                     <Box sx={styles.logo}>
                         <Link href="/">
-                            <Image variant="logo" style={{ cursor: "pointer" }} src={brandLogo2.src} />
+                            <Image variant="logo" style={{ cursor: "pointer" }} src={brandLogo2.src} alt="logo" />
                         </Link>
                     </Box>
                     <Flex as="nav" sx={styles.navList}>
