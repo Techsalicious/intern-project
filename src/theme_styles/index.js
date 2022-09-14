@@ -6,7 +6,8 @@ export default {
         background: '#fff', // body background color
         backgroundSecondary: '#f7f7f7', // secondary background color
         primary: '#ea414b', // primary button and link color
-        darkBackground: "#232323"
+        darkBackground: "#232323",
+        muted: "#999999"
     },
     fonts: {
         body: 'DM Sans, sans-serif',

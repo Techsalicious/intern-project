@@ -1,21 +1,42 @@
-import { Box, Flex, Image } from "theme-ui"
+import { Box, Flex, Image, Text } from "theme-ui"
 import Link from 'next/link';
 import headerData from "./header-data"
 
 import brandLogo2 from "assets/images/iab-logo-color.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from 'next/router';
+
 import MobileMenu from "./mobile-menu";
 
 import { IoMenu } from "react-icons/io5"
+import Dropdown from "./dropdown";
 
 const HeaderSecondary = () => {
 
+
     const [showMobileMenu, setShowMobileMenu] = useState(false);
+    const [currentRoute, setCurrentRoute] = useState("/");
+
+    const [dropdown, setDropdown] = useState(false);
+    const [currentNavItem, setCurrentNavItem] = useState("");
 
     const handleMobileMenu = () => {
         // console.log("clicked")
         setShowMobileMenu(!showMobileMenu)
     };
+
+    const router = useRouter()
+    // console.log(router.route)      
+
+    const currentPage = () => {
+        if (router.route === "/about-our-founder" || router.route === "/about-our-iab" || router.route === "/team-theiab") setCurrentRoute("/who-we-are")
+        if (router.route === "/contact") setCurrentRoute("/contact")
+    }
+
+
+    useEffect(() => {
+        currentPage()
+    }, [currentRoute])
 
     return (
         <>
@@ -26,14 +47,37 @@ const HeaderSecondary = () => {
                             <Image variant="logo" style={{ cursor: "pointer" }} src={brandLogo2.src} alt="logo" />
                         </Link>
                     </Box>
+
                     <Flex as="nav" sx={styles.navList}>
-                        {headerData.map(item => {
-                            return (
-                                <Link key={item.label} href={item.path}>
-                                    <a>{item.label}</a>
-                                </Link>
-                            )
-                        })}
+                        <Box as="ul">
+                            {headerData.map(item => {
+                                {/* { console.log(item.path === currentRoute) } */}
+                                return (
+                                    item.subMenu ?
+                                        (
+                                            <Text as="li"
+                                                key={item.label}
+                                                className={`${item.path !== "/" && item.path === currentRoute ? "active" : ""}`}
+                                                onClick={() => {
+                                                    setCurrentNavItem(item.label)
+                                                    setCurrentRoute("/whoweare")
+                                                    setDropdown(!dropdown)
+                                                }}
+                                            >
+                                                {item.label}
+                                                {currentNavItem === item.label && item.subMenu ? <Dropdown subMenus={item.subMenu} dropdown={dropdown} /> : null}
+                                            </Text>
+                                        )
+                                        :
+                                        (
+                                            <Text as="li"
+                                                className={`${item.path !== "/" && item.path === currentRoute ? "active" : ""}`}>
+                                                <Link href={item.path}>{item.label}</Link>
+                                            </Text>
+                                        )
+                                )
+                            })}
+                        </Box>
                     </Flex>
                     <Box sx={styles.hamburgerIcon}>
                         <span onClick={() => handleMobileMenu()}>
@@ -58,7 +102,7 @@ const styles = {
         left: 0,
         right: 0,
         boxShadow: '0 6px 13px rgba(38,78,118,0.1)',
-        height: ["60px","80px"],
+        height: ["60px", "80px"],
         zIndex: "999",
         // backgroundColor: "red",
     },
@@ -78,42 +122,47 @@ const styles = {
             width: [128, 180, null, '100%'],
         },
     },
+
+
+
     navList: {
         // background: "pink",
         justifyContent: "center",
         display: ["none", null, null, null, "inline-block"],
 
-        "a": {
+        "li": {
             display: "inline-block",
-            px: 2,
-            py: 1,
             borderRadius: "5px",
             // background: "cyan",
-            textAlign: "center",
             textTransform: "capitalize",
             position: "relative",
-            overflowX: "hidden",
+            cursor: "pointer",
+            transition: "300ms ease-in",
+            borderRadius: "5px",
+            mx: "5px",
+            px: 2,
+            py: 1,
 
-            "::after": {
-                content: `""`,
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                width: "100%",
-                height: "2px",
-                backgroundColor: "primary",
-                transform: "translateX(-100%)",
-                transition: ".4s ease-in"
-            },
             ":hover": {
-                color: "primary",
+                backgroundColor: "primary",
+                color: "textSecondary"
+            },
+        },
+        ".active": {
+            backgroundColor: "primary",
+            color: "textSecondary",
 
-                "::after": {
-                    transform: "translateX(0)",
-                }
+            ":hover": {
+                color: "textSecondary",
             }
-        }
+        },
+
+        ".show": {
+            display: "block",
+        },
     },
+
+
     hamburgerIcon: {
         display: ["block", null, null, null, "none"],
         width: ["25px", "30px", "40px"],
