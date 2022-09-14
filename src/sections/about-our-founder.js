@@ -24,7 +24,7 @@ const AboutOurFounder = () => {
                 <Box as="blockquote" sx={styles.quote}>
                     <Image src={blockquote.src} />
                     <Text as="h4" style={{ display: "inline" }}>
-                        People were more likely to give alms to a blind person. There was no awareness of the potentialities of such people and their need to be treated with dignity and respect <span sx={styles.quotation}>says Jinnah.</span>
+                        People were more likely to give alms to a blind person. There was no awareness of the potentialities of such people and their need to be treated with dignity and respect <span>says Jinnah.</span>
                     </Text>
                 </Box>
 
@@ -61,7 +61,7 @@ const AboutOurFounder = () => {
                 <Box as="blockquote" sx={styles.quote}>
                     <Image src={blockquote.src} />
                     <Text as="h4" style={{ display: "inline" }}>
-                        My goal has always been equality of opportunities and experience for people with visual disabilities. People need to be sensitized to the potentials and problems. of the visually impaired. They are no different from others. Typically society tends to overestimate the disability and underestimate the potentials of people with disabilities <span sx={styles.quotation}>reiterates Jinnah.</span>
+                        My goal has always been equality of opportunities and experience for people with visual disabilities. People need to be sensitized to the potentials and problems. of the visually impaired. They are no different from others. Typically society tends to overestimate the disability and underestimate the potentials of people with disabilities <span>reiterates Jinnah.</span>
                     </Text>
                 </Box>
 

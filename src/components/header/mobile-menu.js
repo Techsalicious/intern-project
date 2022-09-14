@@ -33,7 +33,7 @@ const MobileMenu = ({ showMobileMenu, handleMobileMenu }) => {
                 <Box as="ul">
                     {headerData.map(item => {
                         return (
-                            <Text as="li" sx={styles.menuItem} className={`${item.path !== "/" && item.path === currentRoute ? "active" : ""}`}
+                            <Text key={item.label} as="li" sx={styles.menuItem} className={`${item.path !== "/" && item.path === currentRoute ? "active" : ""}`}
                                 style={{ height: `${(currentNavItem === item.label && dropdown) ? "auto" : "60px"}` }}
                             >
                                 {item.subMenu ?
@@ -49,7 +49,7 @@ const MobileMenu = ({ showMobileMenu, handleMobileMenu }) => {
                                             <Box as="ul" sx={styles.subMenuItem} className={`${(currentNavItem === item.label && dropdown) ? "show" : ""}`}>
                                                 {item.subMenu.map(item => {
                                                     return (
-                                                        <Text as="li" onClick={() => handleMobileMenu()}>
+                                                        <Text key={item.label} as="li" onClick={() => handleMobileMenu()}>
                                                             <Link href={item.path}>{item.label}</Link>
                                                         </Text>
                                                     )

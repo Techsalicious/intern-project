@@ -1,7 +1,6 @@
 import React from 'react'
-import { Box, Flex, Image, Text } from 'theme-ui'
+import { Box, Image, Text } from 'theme-ui'
 
-import rama from "../../assets/images/rama.jpg"
 
 const TeamMemberCard = ({ teamMemberData }) => {
     const { imageSrc, name, qualification, desc } = teamMemberData;
@@ -11,7 +10,7 @@ const TeamMemberCard = ({ teamMemberData }) => {
             <Image sx={styles.imgContainer} src={imageSrc} alt={name} />
             <Box sx={styles.content}>
                 <Text as="h4">{name}</Text>
-                <Text as="h6">{qualification.map(item => (<p>{item}</p>) )}</Text>
+                <Text as="h6">{qualification.map((item, index) => (<p key={index}>{item}</p>) )}</Text>
                 <Text as="p">{desc}</Text>
             </Box>
         </Box>
